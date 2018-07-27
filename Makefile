@@ -11,11 +11,12 @@ src = $(filter-out $(_ignored_sources), $(wildcard *.c))
 obj = $(src:.c=.o)
 
 CFLAGS = -std=c11 -Wall
+LDFLAGS = -ledit
 
 all: $(BIN) hello_world ch3_bonus_marks
 
 $(BIN): $(obj)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 hello_world: $(hello_world_obj)
 	$(CC) -o $@ $^

@@ -6,9 +6,10 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-#define INPUT_BUF_SIZE 2048
-static char input[INPUT_BUF_SIZE];
+#include <editline/readline.h>
+#include <editline/history.h>
 
 int main(int argc, char** argv) {
 	// Print version & exit info
@@ -16,11 +17,12 @@ int main(int argc, char** argv) {
 	puts("Press Ctrl+c to Exit\n");
 
 	while(1) {
-		fputs("lispy> ", stdout);
-		fgets(input, INPUT_BUF_SIZE, stdin);
+		// Output our prompt and get input.
+		char* input = readline("lispy> ");
 
-		// Just echo input back to the user, hopefully insulting them.
-		printf("No you're a %s", input);
+		add_history(input);
+		printf("No you're a %s\n", input);
+		free(input);
 	}
 
 	return 0;
