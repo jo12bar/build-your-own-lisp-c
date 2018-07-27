@@ -1,3 +1,7 @@
+# C object files
+*.o
+
 # Binaries
+lispy
 hello_world
 ch3_bonus_marks
