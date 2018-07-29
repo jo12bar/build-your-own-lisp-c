@@ -18,3 +18,23 @@ cleanliness. I might add things, remove things... Let's see what I can do :grin:
   - __*Mac*__: Should be installed with the *Command Line Tools*.
   - __*Debian, Ubuntu, etc*__: `sudo apt install libedit-dev`
   - __*Fedora, etc*__: `su -c "yum install libedit-dev*"`
+
+## Language Spec
+
+Currently just an implementation of
+[polish notation](http://en.wikipedia.org/wiki/Polish_notation), but this
+should make it trivial to implement the rest of Lispy as all Lisps use
+polish-notation-like grammar.
+
+A *program* is an *operator* followed by one or more *expressions*, where an
+*expression* is either a *number*, or, in parentheses, an *operator* followed by
+one or more *expressions*.
+
+More formally:
+
+| Symbol         | Definition                                                                              |
+|----------------|-----------------------------------------------------------------------------------------|
+| `<program>`    | The start of input, an `<operator>`, one or more `<expression>`s, and the end of input. |
+| `<expression>` | Either a `<number>` or a `(`, an `<operator>`, one or more `<expression>`s, and a `)`.  |
+| `<operator>`   | `+`, `-`, `*`, or `/`.                                                                  |
+| `<number>`     | An optional `-`, and one or more characters between 0 and 9 (inclusive).                |
