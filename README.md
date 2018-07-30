@@ -9,6 +9,19 @@ really necessary, but I'm treating it as an exercise in programming
 cleanliness. I might add things, remove things... Let's see what I can do :grin:
 
 ## Building
+This project uses [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+Make sure to run the following commands after cloning:
+
+```bash
+$ git submodule init
+$ git submodule update
+```
+
+Or, just use the `--recurse-submodules` option when cloning this repo, i.e:
+
+```bash
+$ git clone --recurse-submodules https://github.com/jo12bar/build-your-own-lisp-c.git
+```
 
 ### Requirements
 - GNU `make`, `gcc` (or just `cc`&mdash;basically the same thing), etc... If
