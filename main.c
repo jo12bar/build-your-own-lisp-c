@@ -59,9 +59,20 @@ int main(int argc, char** argv) {
 	while(1) {
 		// Output our prompt and get input.
 		char* input = readline("lispy> ");
-
 		add_history(input);
-		printf("No you're a %s\n", input);
+
+		// Attempt to parse the user input
+		mpc_result_t r;
+		if (mpc_parse("<stdin>", input, Lispy, &r)) {
+			// Print the AST on success.
+			mpc_ast_print(r.output);
+			mpc_ast_delete(r.output);
+		}
+		else {
+			mpc_err_print(r.error);
+			mpc_err_delete(r.error);
+		}
+
 		free(input);
 	}
 
