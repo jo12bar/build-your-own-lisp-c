@@ -49,5 +49,5 @@ More formally:
 |----------------|-----------------------------------------------------------------------------------------|
 | `<program>`    | The start of input, an `<operator>`, one or more `<expression>`s, and the end of input. |
 | `<expression>` | Either a `<number>` or a `(`, an `<operator>`, one or more `<expression>`s, and a `)`.  |
-| `<operator>`   | `+`, `-`, `*`, or `/`.                                                                  |
+| `<operator>`   | `+`/`add`, `-`/`sub`, `*`/`mul`, `/`/`div`, or `%`/`mod`.                               |
 | `<number>`     | An optional `-`, and one or more characters between 0 and 9 (inclusive).                |
